@@ -6,6 +6,7 @@ request({ url: url, json: true }, (error, response) => {
     // log(response.body.currently)
     const temp = response.body.currently.temperature
     const prob = response.body.currently.precipProbability
-    const message = `It is currently ${temp} degrees out. There is a ${prob}% chance of rain.`
+    const daily = response.body.daily.data[0].summary
+    const message = `${daily} It is currently ${temp} degrees out. There is a ${prob}% chance of rain.`
     log(message)
 })
